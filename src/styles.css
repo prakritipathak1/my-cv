@@ -1,0 +1,136 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-neon: var(--neon);
+  --color-cyber: var(--cyber);
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+:root {
+  --background: oklch(0.16 0.02 260);
+  --foreground: oklch(0.97 0.01 250);
+  --card: oklch(0.21 0.025 260);
+  --card-foreground: oklch(0.97 0.01 250);
+  --primary: oklch(0.78 0.18 165);
+  --primary-foreground: oklch(0.15 0.02 260);
+  --accent: oklch(0.72 0.2 295);
+  --accent-foreground: oklch(0.97 0.01 250);
+  --muted: oklch(0.26 0.02 260);
+  --muted-foreground: oklch(0.7 0.02 260);
+  --border: oklch(0.3 0.025 260);
+  --ring: oklch(0.78 0.18 165);
+  --neon: oklch(0.82 0.2 160);
+  --cyber: oklch(0.7 0.22 290);
+  --grad-hero: linear-gradient(135deg, oklch(0.78 0.18 165), oklch(0.72 0.2 295));
+  --grad-bg: radial-gradient(ellipse at top, oklch(0.25 0.07 270) 0%, oklch(0.14 0.02 260) 60%);
+  --glow-primary: 0 0 40px oklch(0.78 0.18 165 / 0.45);
+  --glow-accent: 0 0 50px oklch(0.72 0.2 295 / 0.4);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--grad-bg);
+    background-attachment: fixed;
+    color: var(--color-foreground);
+    font-family: var(--font-display);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@utility text-gradient {
+  background: var(--grad-hero);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility glow-primary { box-shadow: var(--glow-primary); }
+@utility glow-accent { box-shadow: var(--glow-accent); }
+
+@utility glass {
+  background: color-mix(in oklab, var(--card) 60%, transparent);
+  backdrop-filter: blur(14px);
+  border: 1px solid color-mix(in oklab, var(--neon) 18%, transparent);
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+@keyframes blob {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  33% { transform: translate(30px,-40px) scale(1.1); }
+  66% { transform: translate(-25px,25px) scale(0.95); }
+}
+@keyframes grid-pan {
+  from { background-position: 0 0; }
+  to { background-position: 60px 60px; }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-up-soft {
+  from { opacity: 0; transform: translateY(18px) scale(0.98); filter: blur(4px); }
+  to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 oklch(0.78 0.18 165 / 0.7); }
+  70% { box-shadow: 0 0 0 18px oklch(0.78 0.18 165 / 0); }
+  100% { box-shadow: 0 0 0 0 oklch(0.78 0.18 165 / 0); }
+}
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+
+@utility animate-float { animation: float-y 6s ease-in-out infinite; }
+@utility animate-blob { animation: blob 14s ease-in-out infinite; }
+@utility animate-grid { animation: grid-pan 20s linear infinite; }
+@utility animate-fade-up { animation: fade-up 0.8s ease-out both; }
+@utility animate-fade-up-soft { animation: fade-up-soft 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+@utility animate-pulse-ring { animation: pulse-ring 2.4s ease-out infinite; }
+@utility animate-spin-slow { animation: spin-slow 24s linear infinite; }
+
+@utility reveal-item {
+  opacity: 0;
+  transform: translateY(18px) scale(0.98);
+  filter: blur(4px);
+  will-change: transform, opacity, filter;
+}
+
+@utility grid-bg {
+  background-image:
+    linear-gradient(oklch(0.78 0.18 165 / 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.78 0.18 165 / 0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+@utility shimmer-text {
+  background: linear-gradient(90deg, var(--foreground) 0%, var(--neon) 50%, var(--foreground) 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 3s linear infinite;
+}
