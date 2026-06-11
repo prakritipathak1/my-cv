@@ -177,9 +177,7 @@ function Hero({ onOpenCert }: { onOpenCert: (src: string, title: string) => void
           </p>
 
           <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
-            Final-year Geomatics Engineering student at Kathmandu University. I turn pixels,
-            point clouds & satellite imagery into maps, insights & decisions — building
-            geospatial software that actually ships.
+          Final-year Geomatics Engineering student at Kathmandu University with interests in surveying, GIS, photogrammetry, remote sensing, and geospatial application development. Passionate about leveraging technology and spatial data to create innovative and practical solutions.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -201,25 +199,7 @@ function Hero({ onOpenCert }: { onOpenCert: (src: string, title: string) => void
 
         {/* Profile portrait with orbiting tech tags */}
         <div className="relative mx-auto h-[380px] w-[380px] md:h-[460px] md:w-[460px]">
-          <div className="absolute inset-0 animate-spin-slow">
-            {["ArcGIS", "GEE", "OSM", "Pix4D", "Python", "QGIS", "RS"].map((t, idx, a) => {
-              const angle = (idx / a.length) * Math.PI * 2;
-              const r = 210;
-              const x = Math.cos(angle) * r;
-              const y = Math.sin(angle) * r;
-              return (
-                <span key={t}
-                  style={{ left: `calc(50% + ${x}px)`, top: `calc(50% + ${y}px)` }}
-                  className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full glass px-3 py-1 font-mono text-[11px] text-primary animate-spin-slow"
-                  // counter-rotate so labels stay upright
-                >
-                  {t}
-                </span>
-              );
-            })}
-          </div>
-          <div className="absolute inset-8 rounded-full border border-primary/30" />
-          <div className="absolute inset-16 rounded-full border border-accent/20" />
+
           <div className="absolute inset-[14%] overflow-hidden rounded-full glow-primary animate-float">
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/40 to-accent/40 p-[3px]">
               <div className="h-full w-full overflow-hidden rounded-full bg-background">
@@ -507,7 +487,7 @@ function Footer() {
   return (
     <footer className="border-t border-border/50">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 text-xs text-muted-foreground md:flex-row">
-        <div className="font-mono">© 2026 Prakriti Pathak · Built with care & coordinates</div>
+        <div className="font-mono">© 2026 Prakriti Pathak.</div>
         <div className="font-mono">Kathmandu University · Geomatics Engineering</div>
       </div>
     </footer>

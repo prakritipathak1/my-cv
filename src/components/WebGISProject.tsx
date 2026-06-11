@@ -170,9 +170,7 @@ export function WebGISProject() {
         <div className="font-mono text-xs uppercase tracking-[0.3em] text-primary">// featured webgis</div>
         <h2 className="mt-2 text-4xl font-bold md:text-5xl">Interactive Geospatial Dashboard</h2>
         <p className="mt-4 max-w-3xl text-lg text-muted-foreground">
-          A high-performance WebGIS application mapping Nepal's districts. Featuring a choropleth map 
-          dynamically styled by population, optimized GeoJSON rendering, smooth hover events, and zoom-on-click navigation.
-        </p>
+Built as part of my WebGIS course, this interactive WebGIS dashboard maps Nepal's districts with dynamic population visualization through a choropleth map styled by population data. The application features optimized GeoJSON rendering for high performance, smooth hover interactions, and zoom-on-click navigation, providing an engaging user experience while demonstrating my skills in WebGIS development, spatial data visualization, and dynamic map styling.        </p>
       </div>
 
       <div className="relative overflow-hidden rounded-3xl glass p-1 shadow-2xl glow-primary/20 ring-1 ring-white/10">
